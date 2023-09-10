@@ -4,7 +4,7 @@ import numpy as np
 #######################################################################################
 from app import app
 from common.pereferences import DEBUG, PORT, HOST, THREADED
-from common.helpers import get_all_unique_data, get_all_stat, get_by_query
+from common.helpers import get_all_unique_data, get_all_stat, get_by_query, get_clusters
 
 @app.route('/')
 @app.route('/index')
@@ -22,6 +22,10 @@ def get_dash_data():
 @app.route('/get_data_by_query', methods=['POST'])
 def get_data_by_query():
     return get_by_query(request.form['query'],data_path='../data/labeled_data.csv')
+
+@app.route('/get_clusters_by_query', methods=['POST'])
+def get_clusters_by_query():
+    return get_clusters(request.form['query'],data_path='../data/all_data_sifted_2.csv')
 
 def main():
     app.run(HOST, PORT, debug=DEBUG, threaded=THREADED)
