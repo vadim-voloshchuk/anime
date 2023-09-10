@@ -19,6 +19,10 @@ def get_all_query():
 def testing_clustering():
     return render_template("qr_testing.html")
 
+@app.route('/ag_clustering', methods = ['POST'])
+def ag_clustering():
+    return render_template("result.html", route = "/testing_clustering", result = get_clusters(request.form['query'],data_path='../data/all_data_sifted_2.csv'))
+
 @app.route('/get_dash_data')
 def get_dash_data():
     return get_all_stat(data_path='../data/labeled_data.csv')
