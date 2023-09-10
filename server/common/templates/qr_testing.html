@@ -1,0 +1,21 @@
+<html>
+  <head>
+    <title>Backend "Мой голос"</title>
+
+    <link rel="stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/testing.css') }}" />
+
+  </head>
+  <body>
+    <div class="main_container">
+        <h2 class="main_header">Тестирование работы кластеризации</h1>
+        <p>
+          Введите запрос:
+        </p>
+        <form method=post action="/ag_clustering" enctype=multipart/form-data>
+          <input name=quety>
+          <input type=submit value=Upload>
+        </form>
+        <a href="/">На главную</a>
+    </div>
+  </body>
+</html>

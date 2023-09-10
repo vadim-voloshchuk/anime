@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, render_template
 import numpy as np
 
 #######################################################################################
@@ -9,11 +9,15 @@ from common.helpers import get_all_unique_data, get_all_stat, get_by_query, get_
 @app.route('/')
 @app.route('/index')
 def source():
-    return "SERVER RUN..."
+    return render_template("index.html")
 
 @app.route('/get_all_query')
 def get_all_query():
     return {'questions': get_all_unique_data('query', data_path='../data/all_data.csv').tolist()}
+
+@app.route('/testing_clustering')
+def testing_clustering():
+    return render_template("qr_testing.html")
 
 @app.route('/get_dash_data')
 def get_dash_data():
